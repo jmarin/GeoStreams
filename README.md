@@ -1,2 +1,2 @@
-GeoStreamProcessor
-==================
+GeoStreams
+==========
