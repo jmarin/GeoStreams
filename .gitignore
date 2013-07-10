@@ -1,13 +1,17 @@
-*.class
-*.log
-
-# sbt specific
-dist/*
+.target/
 target/
-lib_managed/
-src_managed/
 project/boot/
-project/plugins/project/
-
-# Scala-IDE specific
+project/target
+logs/
+.classpath
+.project
 .scala_dependencies
+.ensime
+.cache
+.metadata/
+.settings/
+*.sublime-project
+*.sublime-workspace
+bin/
+design/
+.ensime*
