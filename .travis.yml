@@ -1,6 +1,16 @@
-language: scala
- scala:
-   - "2.10.2"
- jdk:
-   - oraclejdk7
-   - openjdk7
+language: scala # to trigger the build on JVM worker ('language: java' works the same)
+jdk:
+  - oraclejdk7
+  - openjdk7
+scala:
+  - 2.10.2
+env:
+  - PLAY_VERSION=2.1.1 # Latest 2.1.x
+before_script: 
+  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+  - unzip -q play-${PLAY_VERSION}.zip 
+script: play-${PLAY_VERSION}/play test
+notifications:
+  email:
+    recipients:
+      - juan.marin.otero@gmail.com
