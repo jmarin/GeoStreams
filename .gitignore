@@ -5,8 +5,7 @@
 # sbt specific
 dist/*
 target/
-lib_managed/
-src_managed/
+.target/
 project/boot/
 project/plugins/project/
 
@@ -18,3 +17,17 @@ project/plugins/project/
 *.ensime*
 *.classpath
 *.project
+project/target
+logs/
+.classpath
+.project
+.scala_dependencies
+.ensime
+.cache
+.metadata/
+.settings/
+*.sublime-project
+*.sublime-workspace
+bin/
+design/
+.ensime*
