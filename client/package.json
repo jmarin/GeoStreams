@@ -1,5 +1,5 @@
 {
-  "name": "mapmeter-client",
+  "name": "geostreams-client",
   "description": "Server for the Mapmeter client",
   "version": "0.0.1",
   "private": true,
