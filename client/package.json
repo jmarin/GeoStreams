@@ -1,0 +1,55 @@
+{
+  "name": "mapmeter-client",
+  "description": "Server for the Mapmeter client",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.1.0",
+    "connect-flash": "0.1.0",
+    "connect-mongo": "0.3.2",
+    "express-validator": "0.3.2",
+    "commander": "1.1.1",
+    "npmlog": "0.0.2",
+    "packa": "0.3.2",
+    "pause": "0.0.1",
+    "consolidate": "0.8.0",
+    "swig": "0.13.5",
+    "passport": "0.1.17",
+    "passport-google": "0.3.0",
+    "passport-http": "0.2.1",
+    "passport-local": "0.1.6",
+    "mongoose": "3.6.5",
+    "bcrypt": "0.7.4",
+    "async": "0.2.7",
+    "nodemailer": "0.4.1",
+    "node-uuid": "1.4.0",
+    "email-templates": "0.1.0",
+    "authorized": "0.4.1",
+    "validator": "1.1.1"
+  },
+  "devDependencies": {
+    "testacular": "0.4.0",
+    "mocha": "1.9.0",
+    "chai": "1.5.0",
+    "grunt": "0.4.1",
+    "grunt-cli": "0.1.9",
+    "grunt-cafe-mocha": "0.1.4",
+    "grunt-contrib-jshint": "0.5.4",
+    "grunt-contrib-watch": "0.4.4",
+    "request": "2.21.0",
+    "sinon": "1.7.2"
+  },
+  "scripts": {
+    "install": "./node_modules/packa/node_modules/.bin/bower install",
+    "postinstall": "./node_modules/packa/bin/packa build --no-mangle --loglevel info --target target/resources",
+    "jshint": "grunt jshint",
+    "test": "grunt test",
+    "justtest": "grunt cafemocha",
+    "watch": "grunt watch",
+    "start": "node ./server.js --debug config.json",
+    "start-prod": "node ./server.js --build target/resources config.json"
+  },
+  "engines": {
+    "node": "0.8"
+  }
+}

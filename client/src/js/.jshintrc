@@ -1,0 +1,21 @@
+{
+  "curly": true,
+  "indent": false,
+  "latedef": true,
+  "newcap": true,
+  "nonew": true,
+  "quotmark": "single",
+  "undef": true,
+  "trailing": true,
+  "maxlen": 80,
+  "globals": {
+    "window": false,
+    "document": false,
+    "$": false,
+    "angular": false,
+    "d3": false,
+    "OpenLayers": false,
+    "Spinner": false,
+    "Zenbox": false
+  }
+}
