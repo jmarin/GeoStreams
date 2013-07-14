@@ -11,6 +11,7 @@ var cons = require('consolidate');
 var swig = require('swig');
 var validator = require('express-validator');
 var program = require('commander');
+var pause = require('pause');
 
 program.usage('[options] <config>')
     .option('-d, --debug', 'run client in debug mode (unminified sources)')
@@ -52,6 +53,57 @@ app.set('views', path.join(__dirname, 'views'));
 app.get("/", function(req, res, next){
 	res.render("index.html");
 });
+
+
+function pauseMiddleware(req, res, next) {
+  req.paused = pause(req);
+  next();
+}
+
+function resumeMiddleware(req, res, next) {
+  req.paused.resume();
+}
+
+function proxy(config) {
+
+  var isHttps = config.protocol === 'https:',
+      port = config.port || (isHttps ? 443 : 80),
+      requestor = require(isHttps ? 'https' : 'http');
+
+  return function (req, res, next) {
+
+    var options = {
+      hostname: config.hostname,
+      protocol: config.protocol,
+      port: port,
+      path: config.path + req.url.substring('/api'.length),
+      method: req.method,
+      headers: req.headers
+    };
+
+    delete options.headers.cookie;
+
+    var proxyReq = requestor.request(options, function(proxyRes) {
+      res.writeHead(proxyRes.statusCode, proxyRes.headers);
+      proxyRes.pipe(res);
+    });
+    proxyReq.on('error', function(err) {
+      next(err);
+    });
+    req.pipe(proxyReq);
+
+    // next called to resume the paused request
+    next();
+  };
+}
+
+
+app.get("/api/*",
+  pauseMiddleware,
+  proxy(url.parse(config.api)),
+  resumeMiddleware
+);
+
 
 //Start server
 app.listen(config.port, function() {
