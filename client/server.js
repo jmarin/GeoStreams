@@ -49,9 +49,21 @@ swig.init({
 });
 app.set('views', path.join(__dirname, 'views'));
 
+// middleware for static resources
+app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use('/components', express.static(path.join(__dirname, 'components')));
+if (program.build) {
+  app.use(express.static(path.join(__dirname, program.build)));
+}
+if (program.debug) {
+  // configure packa debug loader
+  var packa = require('packa').server;
+  app.get('/static/js/*', packa.debug({directory: __dirname}));
+}
+
 
 app.get("/", function(req, res, next){
-	res.render("index.html");
+	res.render("dashboard.html");
 });
 
 
