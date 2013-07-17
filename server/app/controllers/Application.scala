@@ -2,6 +2,8 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import play.api.libs.json
+import play.api.libs.json._
 
 object Application extends Controller {
   
@@ -9,4 +11,10 @@ object Application extends Controller {
     Ok(views.html.index("Your new application is ready."))
   }
   
+
+  def apiDefault = api("v1")
+
+  def api(version:String) = Action {
+  	Ok(Json.toJson("OK, " + version))
+  }
 }
