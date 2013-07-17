@@ -12,6 +12,10 @@ object Application extends Controller {
   }
   
 
+  def apiStatus = Action {
+  	Ok(Json.toJson("Status Ok"))
+  }
+
   def apiDefault = api("v1")
 
   def api(version:String) = Action {
