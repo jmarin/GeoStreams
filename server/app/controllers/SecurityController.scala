@@ -24,7 +24,8 @@ object SecurityController extends Controller with Security {
         },
         valid => {
           if (checkCredentials(Json.fromJson(json).get)) {
-            Ok(goodToken)
+
+            Ok(goodToken).withHeaders("X-AUTH-TOKEN" -> (__ \ "token")(goodToken).head.toString)
           } else {
             Unauthorized(badToken)
           }
