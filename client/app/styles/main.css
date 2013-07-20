@@ -33,3 +33,7 @@ body {
 .twitter-geo {
     float: left;
 }
+
+.twitter-legend {
+    text-align: center;
+}
