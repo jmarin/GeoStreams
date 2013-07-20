@@ -11,9 +11,10 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /api                        controllers.Application.apiDefault
 
 
-GET     /api/login                  controllers.Application.login
+POST     /api/login                  controllers.SecurityController.login
 
-GET		/api/:v 					controllers.Application.api(v:String)
+
+#GET		/api/:v 					controllers.Application.api(v:String)
 
 
 GET     /api/status					controllers.Application.apiStatus
