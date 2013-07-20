@@ -7,6 +7,7 @@ import play.api.libs.json._
 
 object Application extends Controller {
   
+
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
   }
@@ -20,5 +21,9 @@ object Application extends Controller {
 
   def api(version:String) = Action {
   	Ok(Json.toJson("OK, " + version))
+  }
+
+  def login = Action {
+    Ok(Json.toJson("SUPER_TOKEN"))
   }
 }

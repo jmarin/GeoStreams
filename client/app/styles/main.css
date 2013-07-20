@@ -20,3 +20,16 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.twitter-input {
+    width: 500px;
+}
+
+.twitter-save {
+    float: right;
+    margin-right: 1em;
+}
+
+.twitter-geo {
+    float: left;
+}

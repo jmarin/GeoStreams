@@ -11,6 +11,10 @@ angular.module('clientApp', [])
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/twitter', {
+        templateUrl: 'views/twitter.html',
+        controller: 'TwitterCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
