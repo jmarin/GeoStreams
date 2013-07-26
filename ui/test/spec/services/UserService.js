@@ -3,7 +3,7 @@
 describe('Service: UserService', function () {
 
   // load the service's module
-  beforeEach(module('clientApp'));
+  beforeEach(module('uiApp'));
 
   // instantiate service
   var UserService;

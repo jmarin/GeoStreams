@@ -1,6 +1,6 @@
-// Generated on 2013-07-17 using generator-angular 0.3.0
+// Generated on 2013-07-26 using generator-angular 0.3.0
 'use strict';
-var LIVERELOAD_PORT = 35729;
+var LIVERELOAD_PORT = 35629;
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
@@ -285,7 +285,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
-      'connect:livereload',
+      //'connect:livereload',
       'open',
       'watch'
     ]);

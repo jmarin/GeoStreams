@@ -1,6 +1,8 @@
 import sbt._
 import Keys._
 import play.Project._
+import com.tuplejump.sbt.yeoman.Yeoman
+
 
 object ApplicationBuild extends Build {
 
@@ -15,7 +17,8 @@ object ApplicationBuild extends Build {
 
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    // Add your own project settings here      
+    // Add your own project settings here
+    Yeoman.yeomanSettings : _*
   )
 
 }
